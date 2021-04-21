@@ -38,41 +38,42 @@ async function handleEvent(event) {
 
       // 画像を取得し終わったら、Face APIに送信する
       const result = await faceClient.face.detectWithStream(image, {
-        returnFaceAttributes: ['emotion'],
+        returnFaceLandmarks: true,
       });
+      console.log(result);
 
-      // Face APIの結果から、返信するメッセージを組み立てる
-      let text = '';
-      if (result.length === 0) {
-        // 結果が0件の場合
-        text += '送信された画像から顔が検出できませんでした。';
-      } else {
-        // 結果がある場合、最初の結果を表示する
-        text += '感情を分析しました！\n';
-        text += '\n';
-        text += '怒り　：' + result[0].faceAttributes.emotion.anger + '\n';
-        text += '軽蔑　：' + result[0].faceAttributes.emotion.contempt + '\n';
-        text += '嫌悪　：' + result[0].faceAttributes.emotion.disgust + '\n';
-        text += '喜び　：' + result[0].faceAttributes.emotion.happiness + '\n';
-        text += '中立　：' + result[0].faceAttributes.emotion.neutral + '\n';
-        text += '悲しみ：' + result[0].faceAttributes.emotion.sadness + '\n';
-        text += '驚き　：' + result[0].faceAttributes.emotion.surprise + '\n';
-        text += '恐れ　：' + result[0].faceAttributes.emotion.fear;
-        // memo: 返す文字を編集する場合はここを編集しましょう
-      }
+    //   // Face APIの結果から、返信するメッセージを組み立てる
+    //   let text = '';
+    //   if (result.length === 0) {
+    //     // 結果が0件の場合
+    //     text += '送信された画像から顔が検出できませんでした。';
+    //   } else {
+    //     // 結果がある場合、最初の結果を表示する
+    //     text += '感情を分析しました！\n';
+    //     text += '\n';
+    //     text += '怒り　：' + result[0].faceAttributes.emotion.anger + '\n';
+    //     text += '軽蔑　：' + result[0].faceAttributes.emotion.contempt + '\n';
+    //     text += '嫌悪　：' + result[0].faceAttributes.emotion.disgust + '\n';
+    //     text += '喜び　：' + result[0].faceAttributes.emotion.happiness + '\n';
+    //     text += '中立　：' + result[0].faceAttributes.emotion.neutral + '\n';
+    //     text += '悲しみ：' + result[0].faceAttributes.emotion.sadness + '\n';
+    //     text += '驚き　：' + result[0].faceAttributes.emotion.surprise + '\n';
+    //     text += '恐れ　：' + result[0].faceAttributes.emotion.fear;
+    //     // memo: 返す文字を編集する場合はここを編集しましょう
+    //   }
 
-      return lineClient.replyMessage(event.replyToken, {
-        type: 'text',
-        text: text, // ← ここに入れた言葉が実際に返信されます
-      });
-    } catch (e) {
-      console.error(e);
+    //   return lineClient.replyMessage(event.replyToken, {
+    //     type: 'text',
+    //     text: text, // ← ここに入れた言葉が実際に返信されます
+    //   });
+    // } catch (e) {
+    //   console.error(e);
 
-      return lineClient.replyMessage(event.replyToken, {
-        type: 'text',
-        text: '画像取得or画像分析中にエラーが発生しました。',
-      });
-    }
+    //   return lineClient.replyMessage(event.replyToken, {
+    //     type: 'text',
+    //     text: '画像取得or画像分析中にエラーが発生しました。',
+    //   });
+    // }
   }
 
   // 「テキストメッセージ」であれば、受信したテキストをそのまま返事します
