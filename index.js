@@ -40,7 +40,7 @@ async function handleEvent(event) {
       const result = await faceClient.face.detectWithStream(image, {
         returnFaceLandmarks: true,
       });
-      console.log(result);
+      console.log(JSON.stringify(result));
 
     //   // Face APIの結果から、返信するメッセージを組み立てる
     //   let text = '';
@@ -66,14 +66,14 @@ async function handleEvent(event) {
     //     type: 'text',
     //     text: text, // ← ここに入れた言葉が実際に返信されます
     //   });
-    // } catch (e) {
-    //   console.error(e);
+    } catch (e) {
+      console.error(e);
 
-    //   return lineClient.replyMessage(event.replyToken, {
-    //     type: 'text',
-    //     text: '画像取得or画像分析中にエラーが発生しました。',
-    //   });
-    // }
+      return lineClient.replyMessage(event.replyToken, {
+        type: 'text',
+        text: '画像取得or画像分析中にエラーが発生しました。',
+      });
+    }
   }
 
   // 「テキストメッセージ」であれば、受信したテキストをそのまま返事します
