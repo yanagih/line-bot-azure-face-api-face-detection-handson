@@ -9,7 +9,7 @@
 
 ## 開発環境
 
-[Gitpod](https://www.gitpod.io/)を利用してハンズオンを進めることができます。
+[Gitpod](https://www.gitpod.io/)を利用してハンズオンを進めることができます。  
 https://gitpod.io/#https://github.com/tmitsuoka0423/line-bot-azure-face-api-face-detection-handson
 
 ## インストール
