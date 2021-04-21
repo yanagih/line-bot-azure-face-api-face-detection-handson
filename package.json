@@ -1,31 +1,22 @@
 {
-  "name": "line-bot-azure-face-api-handson",
+  "name": "line-bot-azure-face-api-face-detection-handson",
   "version": "1.0.0",
-  "description": "This is handson materials for creating LINE Bot and Face API.",
+  "description": "This is a handson material for LINE Bot and Azure Face API.",
   "main": "index.js",
   "scripts": {
-    "express": "node index.js",
-    "serve": "honkit serve",
-    "deploy": "honkit build && gh-pages -d _book"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tmitsuoka0423/line-bot-azure-face-api-handson.git"
+    "url": "git+https://github.com/tmitsuoka0423/line-bot-azure-face-api-face-detection-handson.git"
   },
-  "keywords": [
-    "line",
-    "linebot",
-    "bot",
-    "faceapi",
-    "azure",
-    "handson"
-  ],
-  "author": "tmitsuoka0423",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tmitsuoka0423/line-bot-azure-face-api-handson/issues"
+    "url": "https://github.com/tmitsuoka0423/line-bot-azure-face-api-face-detection-handson/issues"
   },
-  "homepage": "https://github.com/tmitsuoka0423/line-bot-azure-face-api-handson#readme",
+  "homepage": "https://github.com/tmitsuoka0423/line-bot-azure-face-api-face-detection-handson#readme",
   "dependencies": {
     "@azure/cognitiveservices-face": "^4.1.0",
     "@azure/ms-rest-azure-js": "^2.1.0",
@@ -37,9 +28,6 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "gh-pages": "^3.1.0",
-    "gitbook-plugin-page-treeview": "^3.0.3",
-    "honkit": "^3.6.17",
     "prettier": "2.2.1"
   }
 }
